@@ -102,7 +102,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValuesController1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Employee\LlabsDomain.csproj">

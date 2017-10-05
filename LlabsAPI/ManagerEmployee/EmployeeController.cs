@@ -21,12 +21,6 @@ namespace ManagerEmployee
             return _AppEmployee.List(PageNumber, PageSize);
         }
 
-        // GET: api/Employee/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST: api/Employee
         [HttpPost]
         public IHttpActionResult Post([FromBody]Employee value)
@@ -35,12 +29,6 @@ namespace ManagerEmployee
                 return Created("/api/Employee", _AppEmployee.Insert(value));
             else
                 return BadRequest(ModelState);
-        }
-
-        // PUT: api/Employee/5
-        [HttpPut]
-        public void Put(int id, [FromBody]Employee value)
-        {
         }
 
         // DELETE: api/Employee/5
