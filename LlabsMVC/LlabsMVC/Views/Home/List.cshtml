@@ -1,0 +1,61 @@
+﻿@model LlabsDomain.Result
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Employee</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Employees)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@if (Model.Settings.PageCount > 0)
+{
+    <ul>
+        <li>
+            @for (int i = 1; i <= Model.Settings.PageCount; i++)
+            {
+                string separador = "";
+                if (i != Model.Settings.PageCount)
+                {
+                    separador = ", ";
+                }
+                else
+                {
+                    separador = "";
+                }
+                @Html.ActionLink(i.ToString() + separador, "./List", new { @PageNumber = i.ToString(), @PageSize = Model.Settings.PageSize })
+            }
+            @(" - Pag " + Model.Settings.PageNumber.ToString())
+        </li>
+    </ul>
+
+
+}
