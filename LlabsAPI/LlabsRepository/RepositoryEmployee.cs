@@ -13,9 +13,8 @@ namespace LlabsRepository
         public RepositoryEmployee()
         {
             //para rodar os testes, descomente a linha abaixo e comente a seguinte (coloque o caminho correto do BD)
-            //var fullPathDB = "C:\\Users\\eduar\\Source\\Repos\\labs\\LlabsAPI\\LlabsRepository\\App_Data\\LlabEmployee.mdf";
-            var fullPathDB = HttpContext.Current.Server.MapPath("~/App_Data").Replace("\\ManagerEmployee\\App_Data", "\\LlabsRepository\\App_Data") + "\\LlabEmployee.mdf";
-            ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = '" + fullPathDB + "'; Integrated Security = True";
+            //ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\eduar\\Source\\Repos\\labs\\LlabsAPI\\ManagerEmployee\\App_Data\\LlabEmployee.mdf; Integrated Security = True";
+            ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\LlabEmployee.mdf; Integrated Security = True";
         }
 
         public List<Employee> List()
