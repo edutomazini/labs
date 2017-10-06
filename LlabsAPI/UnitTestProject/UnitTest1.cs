@@ -13,7 +13,7 @@ namespace UnitTestProject
         public void Insert()
         {
             int id = 0;
-            Employee Emp = new Employee() { Name = "edu", Email = "edu@nada", Department = "depart" };
+            Employee Emp = new Employee() { Name = "edu", Email = "edu@nada.com", Department = "depart" };
 
             //insert
             LlabsApplication.AppEmployee EmpInsert = new LlabsApplication.AppEmployee();
