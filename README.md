@@ -1,4 +1,5 @@
 # labs
+
 Dois projetos nessa branch:<br><br>
 
 1 - API<br>
@@ -16,3 +17,4 @@ Dois projetos nessa branch:<br><br>
   Rode em modo debug. Ele irá iniciar uma api na porta 8000 local.<br>
   Abra a Solution LlabMVC<BR>
   Rode a Solution. Essa aplicacao MVC fará o uso da API.
+
