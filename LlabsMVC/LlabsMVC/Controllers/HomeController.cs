@@ -61,17 +61,17 @@ namespace LlabsMVC.Controllers
 
                     if (RestResponse.StatusCode == HttpStatusCode.Created)
                     {
-                        TempData["MensagemSucesso"] = "Cadastrado efetuado com sucesso!";
+                        TempData["MensagemSucesso"] = "Registration successfully Complete!";
                         return Json(new { Sucesso = true });
                     }
                     else
                     {
-                        var message = JsonConvert.DeserializeObject<dynamic>(RestResponse.Content);
+                        string message = RestResponse.Content.ToString().Split(':')[2].ToString();
 
-                        if (message.message != null)
-                            return Json(new { Sucesso = false, Mensagem = string.Concat("Não foi possível efetuar o cadastro solicitado! <br /> Erro: ", message.message.Value) });
+                        if (message != null)
+                            return Json(new { Sucesso = false, Mensagem = string.Concat("Could not register requested! Erro: ", message.Split(',')[0]) });
                         else
-                            return Json(new { Sucesso = false, Mensagem = string.Concat("Não foi possível efetuar o cadastro solicitado! <br /> Erro: Não informado") });
+                            return Json(new { Sucesso = false, Mensagem = string.Concat("Could not register requested!") });
                     }
                 }
                 else
