@@ -69,7 +69,7 @@ namespace LlabsMVC.Controllers
                         string message = RestResponse.Content.ToString().Split(':')[2].ToString();
 
                         if (message != null)
-                            return Json(new { Sucesso = false, Mensagem = string.Concat("Could not register requested! Erro: ", message.Split(',')[0]) });
+                            return Json(new { Sucesso = false, Mensagem = string.Concat("Could not register requested! Error: ", message.Split(',')[0]) });
                         else
                             return Json(new { Sucesso = false, Mensagem = string.Concat("Could not register requested!") });
                     }
