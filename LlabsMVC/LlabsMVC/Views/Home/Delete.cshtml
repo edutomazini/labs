@@ -1,0 +1,95 @@
+﻿@model LlabsDomain.Result
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Employee</h2>
+
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Employees)
+    {
+        using (Ajax.BeginForm("acaodeletar", "", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))
+        {
+            Html.AntiForgeryToken();
+            <tr>
+                <td>
+                    <input hidden name="Id" id="Id" value="@item.Id" />
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+@if (Model.Settings.PageCount > 0)
+{
+    <ul>
+        <li>
+            @for (int i = 1; i <= Model.Settings.PageCount; i++)
+                {
+                    string separador = "";
+                    if (i != Model.Settings.PageCount)
+                    {
+                        separador = ", ";
+                    }
+                    else
+                    {
+                        separador = "";
+                    }
+                    @Html.ActionLink(i.ToString() + separador, "./Delete", new { @PageNumber = i.ToString(), @PageSize = Model.Settings.PageSize })
+            }
+            @(" - Pag " + Model.Settings.PageNumber.ToString())
+        </li>
+    </ul>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+
+        function OnFailure(response) {
+            alert(reponse.Mensagem);
+        }
+
+        function OnSuccess(response) {
+            if (response.Sucesso === true) {
+                alert("Item Deleted!");
+                location.href = "/Home/Delete/";
+            }
+            else {
+                alert(response.Mensagem);
+            }
+        }
+    </script>
+}
+
+
