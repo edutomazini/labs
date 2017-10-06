@@ -72,12 +72,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\LlabEmployee.mdf" />
-    <Content Include="App_Data\LlabEmployee_log.ldf">
-      <DependentUpon>LlabEmployee.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Employee\LlabsDomain.csproj">
       <Project>{A0F9ADF2-2994-4BFD-A8E2-625E7C33DF9E}</Project>
       <Name>LlabsDomain</Name>
