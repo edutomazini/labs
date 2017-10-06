@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Net;
-using PagedList;
+using System.Configuration;
 
 namespace LlabsMVC.Controllers
 {
     public class HomeController : Controller
     {
+        private string UrlApi = ConfigurationManager.AppSettings["UrlApi"];
         public ActionResult Index()
         {
             return View();
@@ -21,7 +21,8 @@ namespace LlabsMVC.Controllers
         {
             LlabsDomain.Result lstEmployees = new LlabsDomain.Result();
 
-            var client = new RestClient("http://localhost:8000/");
+            var client = new RestClient(UrlApi);
+
             var request = new RestRequest("/api/Employee?PageNumber="+PageNumber.ToString()+"&PageSize=" + PageSize.ToString(), Method.GET);
 
             IRestResponse RestResponseEmployee = client.Execute<LlabsDomain.Result>(request);
@@ -52,7 +53,7 @@ namespace LlabsMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var client = new RestClient("http://localhost:8000/");
+                    var client = new RestClient(UrlApi);
 
                     var request = new RestRequest(string.Concat("api/Employee"), Method.POST);
                     request.AddJsonBody(Employee);
@@ -96,7 +97,7 @@ namespace LlabsMVC.Controllers
         {
             LlabsDomain.Result lstEmployees = new LlabsDomain.Result();
 
-            var client = new RestClient("http://localhost:8000/");
+            var client = new RestClient(UrlApi);
             var request = new RestRequest("/api/Employee?PageNumber=" + PageNumber.ToString() + "&PageSize=" + PageSize.ToString(), Method.GET);
 
             IRestResponse RestResponseEmployee = client.Execute<LlabsDomain.Result>(request);
@@ -122,7 +123,7 @@ namespace LlabsMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var client = new RestClient("http://localhost:8000/");
+                    var client = new RestClient(UrlApi);
 
                     var request = new RestRequest(string.Concat("api/Employee/" + Id.ToString()), Method.DELETE);
                     IRestResponse RestResponse = client.Execute<LlabsDomain.Employee>(request);
