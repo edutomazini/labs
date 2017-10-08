@@ -29,7 +29,7 @@ Dois projetos nessa <i>branch:</i><br><br>
   
 ### extra - Teste Unitário<br>
   Existe um terceiro projeto, UnitTestProject (encontra-se na solution da API), que faz um teste básico nos três métodos principais da API (insert, delete, list).<br>
-  Para rodá-lo é necessario alterar a string de conexão da API, informe o caminho físico do banco de dados (como é um projeto totalmente local, o Banco de dados é um arquivo MDF local).<br>
+  Para rodá-lo é necessario alterar a string de conexão da API. Informe o caminho físico do banco de dados (como é um projeto totalmente local, o Banco de dados é um arquivo MDF local).<br>
   Para configurar, altere a linha 16 da classe ```c#RepositoryEmployee```: <br>
   ```c#
   ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\LlabEmployee.mdf; Integrated Security = True";
