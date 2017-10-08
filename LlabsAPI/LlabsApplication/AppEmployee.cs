@@ -1,5 +1,6 @@
 ﻿using LlabsDomain;
 using LlabsRepository;
+using System;
 using System.Collections.Generic;
 using X.PagedList;
 
@@ -17,7 +18,7 @@ namespace LlabsApplication
         {
 
             if (PageSize < 0 || PageNumber < 0)
-                throw new System.Exception("PageSize and PageNumber must be > 0");
+                throw new Exception("PageSize and PageNumber must be > 0");
 
             List<Employee> Employees = new List<Employee>();
             Employees = _RepositoryEmployee.List();
@@ -51,12 +52,27 @@ namespace LlabsApplication
 
         public int Insert(Employee value)
         {
-            return _RepositoryEmployee.Insert(value);
+            if (this.EmailExists(value.Email))
+                throw new Exception("This email already exists!");
+            else
+                return _RepositoryEmployee.Insert(value);
         }
 
         public int Delete(int Id)
         {
             return _RepositoryEmployee.Delete(Id);
+        }
+
+        public bool EmailExists(string email)
+        {
+            List<Employee> Employees = new List<Employee>();
+            Employees = _RepositoryEmployee.List();
+            Employee employeefind = Employees.Find(employee => employee.Email == email);
+
+            if (employeefind != null)
+                return true;
+            else
+                return false;
         }
     }
 }
