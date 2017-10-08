@@ -6,14 +6,14 @@ Dois projetos nessa branch:<br><br>
   Responsavel pela manipulacao dos dados de empregados (Employee):<BR>
   Lista (paginado), insere e exclui.<br><br>
   ```bash
-  Solution LlabsAPI.sln<br>
+  Solution LlabsAPI.sln
   ```
   Está configurado para rodar na porta 8000 (http://localhost:8000/)
    
 ### 2 - MVC<br>
   Faz o uso da API para trabalhar com os dados.<br><br>
   ```bash
-  Solution LlabsMVC.sln<br>
+  Solution LlabsMVC.sln
   ```
   Se conecta à API pela porta 8000, a configuração da conexão é feita no arquivo web.config<br><br>
   
