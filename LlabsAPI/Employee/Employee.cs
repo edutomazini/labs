@@ -14,6 +14,7 @@ namespace LlabsDomain
         [Required]
         [Display(Name="Email")]
         [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         [StringLength(100, ErrorMessage = "Email must be informed!")]
         public string Email { get; set; }
         [Required]
