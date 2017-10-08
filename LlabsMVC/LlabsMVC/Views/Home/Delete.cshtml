@@ -24,7 +24,7 @@
 
     @foreach (var item in Model.Employees)
     {
-        using (Ajax.BeginForm("acaodeletar", "", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))
+        using (Ajax.BeginForm("acaodeletar", "", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccess", OnFailure = "OnFailure", Confirm = "Do you want to delete?" }))
         {
             Html.AntiForgeryToken();
             <tr>
@@ -89,6 +89,7 @@
                 alert(response.Mensagem);
             }
         }
+
     </script>
 }
 
