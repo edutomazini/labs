@@ -22,13 +22,13 @@ Dois projetos nessa <i>branch:</i><br><br>
     <add key="urlAPI" value ="http://localhost:8000/"/>
 ``` 
   Para usar:<br>
-  Abra a Solution LlabAPI<br>
+  Abra a <i>Solution</i> LlabAPI.<br>
   Rode em modo debug. Ele irá iniciar uma api na porta 8000 local.<br>
-  Abra a Solution LlabMVC<BR>
-  Rode a Solution. Essa aplicação MVC fará o uso da API.<br><br>
+  Abra a <i>Solution</i> LlabMVC.<BR>
+  Rode a <i>Solution</i>. Essa aplicação MVC fará o uso da API.<br><br>
   
 ### extra - Teste Unitário<br>
-  Existe um terceiro projeto, UnitTestProject (encontra-se na solution da API), que faz um teste básico nos três métodos principais da API (insert, delete, list).<br>
+  Existe um terceiro projeto, UnitTestProject (encontra-se na <i>Solution</i> da API), que faz um teste básico nos três métodos principais da API (insert, delete, list).<br>
   Para rodá-lo é necessario alterar a string de conexão da API. Informe o caminho físico do banco de dados (como é um projeto totalmente local, o Banco de dados é um arquivo MDF local).<br>
   Para configurar, altere a linha 16 da classe ```c#RepositoryEmployee```: <br>
   ```c#
